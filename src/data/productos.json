@@ -1,0 +1,26 @@
+[
+  {
+    "id": "cadena-singapur-18k",
+    "nombre": "Cadena Singapur",
+    "precio": "245.00",
+    "categoria": "Cadenas"
+  },
+  {
+    "id": "cadena-veneciana-18k",
+    "nombre": "Cadena Veneciana Fina",
+    "precio": "280.00",
+    "categoria": "Cadenas"
+  },
+  {
+    "id": "pulsera-barbada-18k",
+    "nombre": "Pulsera Barbada Clásica",
+    "precio": "350.00",
+    "categoria": "Pulseras"
+  },
+  {
+    "id": "pulsera-eslabon-cubano",
+    "nombre": "Pulsera Eslabón Cubano",
+    "precio": "520.00",
+    "categoria": "Pulseras"
+  }
+]

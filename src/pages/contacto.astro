@@ -1,0 +1,55 @@
+---
+import MainLayout from '../layouts/MainLayout.astro';
+---
+
+<MainLayout>
+  <main class="pt-32 pb-20 px-10 max-w-5xl mx-auto min-h-screen flex flex-col md:flex-row gap-16">
+    
+    <!-- Columna Info -->
+    <div class="w-full md:w-1/3">
+      <h1 class="text-4xl font-serif font-light mb-6 uppercase">Contacto</h1>
+      <p class="text-stone-500 mb-10 leading-relaxed">
+        ¿Tienes dudas sobre los quilates, el peso o la longitud de alguna de nuestras cadenas o pulseras? Estamos aquí para asesorarte.
+      </p>
+      
+      <div class="space-y-6">
+        <div>
+          <h3 class="text-xs tracking-[0.2em] uppercase font-bold text-stone-900 mb-1">Email</h3>
+          <p class="text-stone-500 text-sm">asesoria@laboutique18k.com</p>
+        </div>
+        <div>
+          <h3 class="text-xs tracking-[0.2em] uppercase font-bold text-stone-900 mb-1">Sede Central</h3>
+          <p class="text-stone-500 text-sm">Murcia, España<br/>(Atención exclusivamente online)</p>
+        </div>
+        <div>
+          <h3 class="text-xs tracking-[0.2em] uppercase font-bold text-stone-900 mb-1">Horario</h3>
+          <p class="text-stone-500 text-sm">Lunes a Viernes<br/>9:00h - 18:00h</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Columna Formulario -->
+    <div class="w-full md:w-2/3 bg-white p-8 lg:p-12 border border-stone-100 shadow-sm">
+      <form class="space-y-6">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div class="flex flex-col">
+            <label class="text-xs tracking-widest uppercase text-stone-500 mb-2">Nombre</label>
+            <input type="text" class="border-b border-stone-300 py-2 focus:outline-none focus:border-[#ddc84d] transition-colors bg-transparent" placeholder="Tu nombre" />
+          </div>
+          <div class="flex flex-col">
+            <label class="text-xs tracking-widest uppercase text-stone-500 mb-2">Email</label>
+            <input type="email" class="border-b border-stone-300 py-2 focus:outline-none focus:border-[#ddc84d] transition-colors bg-transparent" placeholder="tu@email.com" />
+          </div>
+        </div>
+        <div class="flex flex-col">
+          <label class="text-xs tracking-widest uppercase text-stone-500 mb-2">Mensaje</label>
+          <textarea rows="4" class="border-b border-stone-300 py-2 focus:outline-none focus:border-[#ddc84d] transition-colors bg-transparent resize-none" placeholder="¿En qué podemos ayudarte?"></textarea>
+        </div>
+        <button type="button" class="bg-stone-900 text-white px-8 py-4 text-xs tracking-[0.2em] uppercase hover:bg-[#ddc84d] hover:text-stone-900 transition-all duration-300 mt-4">
+          Enviar Mensaje
+        </button>
+      </form>
+    </div>
+
+  </main>
+</MainLayout>

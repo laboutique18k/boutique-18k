@@ -1,0 +1,53 @@
+---
+// Componente Footer
+---
+<section class="bg-[#ddc84d]/10 py-20 px-10 border-t border-[#ddc84d]/20 mt-20">
+  <div class="max-w-2xl mx-auto text-center">
+    <h3 class="text-3xl font-serif mb-4 text-stone-900">Únete a nuestro club exclusivo</h3>
+    <p class="text-stone-600 mb-8 leading-relaxed">
+      Déjanos tu correo y recibe un <strong>10% de cortesía</strong> en tu primera compra, además de acceso anticipado a nuestras nuevas piezas de oro 18K antes de que se agoten.
+    </p>
+    
+    <form class="flex flex-col sm:flex-row gap-4 justify-center">
+      <input 
+        type="email" 
+        placeholder="Tu correo electrónico" 
+        class="px-6 py-4 bg-white border border-stone-200 focus:outline-none focus:border-[#ddc84d] min-w-[300px] text-sm" 
+        required 
+      />
+      <button 
+        type="submit" 
+        class="bg-stone-900 text-white px-8 py-4 text-xs tracking-widest uppercase hover:bg-[#ddc84d] hover:text-stone-900 transition-colors"
+      >
+        Suscribirme
+      </button>
+    </form>
+    <p class="text-[10px] text-stone-400 mt-4 tracking-wider uppercase">Tus datos están 100% seguros con nosotros.</p>
+  </div>
+</section>
+
+<footer class="bg-stone-900 text-stone-400 py-16 px-10">
+  <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-10">
+    <div>
+      <h3 class="text-[#ddc84d] tracking-[0.2em] text-lg font-serif mb-4 uppercase">La Boutique</h3>
+      <p class="text-sm leading-relaxed max-w-xs">
+        Joyería exclusiva de piezas de oro 18K. La mejor calidad con garantía de autenticidad.
+      </p>
+    </div>
+    <div>
+      <h4 class="text-white tracking-widest uppercase text-xs mb-4">Atención al Cliente</h4>
+      <ul class="space-y-2 text-sm">
+        <li><a href="/envios" class="hover:text-white transition-colors duration-300">Envíos y Devoluciones</a></li>
+        <li><a href="/cuidado-oro" class="hover:text-white transition-colors duration-300">Cuidado del Oro</a></li>
+        <li><a href="/contacto" class="hover:text-white transition-colors duration-300">Contacto</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4 class="text-white tracking-widest uppercase text-xs mb-4">Pago Seguro</h4>
+      <p class="text-sm mb-4">Transacciones cifradas de extremo a extremo mediante pasarelas de seguridad bancaria.</p>
+    </div>
+  </div>
+  <div class="max-w-7xl mx-auto mt-12 pt-8 border-t border-stone-800 text-xs text-center flex flex-col items-center">
+    <span>© 2026 La Boutique 18K. Todos los derechos reservados.</span>
+  </div>
+</footer>

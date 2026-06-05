@@ -1,0 +1,99 @@
+---
+import MainLayout from '../../layouts/MainLayout.astro';
+import productos from '../../data/productos.json';
+
+// Esta función es la que pedía el error: le dice a Astro qué páginas generar
+export function getStaticPaths() {
+  return productos.map((joya) => ({
+    params: { id: joya.id },
+    props: { joya },
+  }));
+}
+
+const { joya } = Astro.props;
+---
+
+<MainLayout>
+  <main class="pt-32 pb-20 px-10 max-w-6xl mx-auto min-h-screen flex flex-col md:flex-row gap-16 items-center">
+    
+    <div class="w-full md:w-1/2 aspect-square bg-stone-100 p-8 flex items-center justify-center relative">
+        <img src={joya.imagen} alt={joya.nombre} class="w-full h-full object-cover shadow-sm" />
+    </div>
+
+    <div class="w-full md:w-1/2 flex flex-col justify-center py-8 lg:py-0">
+      
+      <span class="text-[#ddc84d] font-bold text-[10px] uppercase tracking-[0.3em] mb-4 block">
+        {joya.categoria}
+      </span>
+      <h1 class="text-4xl lg:text-5xl font-serif text-stone-900 mb-4">{joya.nombre}</h1>
+      <p class="text-2xl font-light tracking-wider mb-8 text-stone-700">{joya.precio} €</p>
+      
+      <p class="text-stone-600 leading-relaxed mb-12 max-w-md">
+        Pieza exclusiva forjada en oro de 18 quilates. Incluye certificado de autenticidad, estuche premium y envío asegurado en 24/48h.
+      </p>
+
+      <button 
+        id="btn-comprar" 
+        data-nombre={joya.nombre} 
+        data-precio={joya.precio}
+        class="group relative w-full sm:w-[85%] bg-stone-900 text-white py-5 px-8 text-xs tracking-[0.2em] uppercase font-semibold overflow-hidden transition-all duration-500 hover:bg-[#ddc84d] hover:text-stone-900 hover:-translate-y-1 hover:shadow-[0_15px_30px_-10px_rgba(221,200,77,0.4)] active:translate-y-0 active:shadow-none"
+      >
+        <span class="relative z-10 flex items-center justify-center gap-3">
+          Comprar Ahora
+          <svg width="20" height="20" class="transition-transform duration-500 group-hover:translate-x-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+          </svg>
+        </span>
+      </button>
+
+      <div class="mt-8 sm:w-[85%] flex flex-wrap items-center justify-center gap-6 text-[9px] text-stone-500 uppercase tracking-widest border-t border-stone-200 pt-6">
+        <span class="flex items-center gap-2">
+          <svg class="w-3.5 h-3.5 text-[#ddc84d]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path>
+          </svg>
+          Transacción Cifrada
+        </span>
+        <span class="flex items-center gap-2">
+          <svg class="w-3.5 h-3.5 text-[#ddc84d]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+          </svg>
+          Garantía 18K
+        </span>
+      </div>
+
+    </div>
+
+  </main>
+</MainLayout>
+
+<script>
+  const btnComprar = document.getElementById('btn-comprar') as HTMLButtonElement;
+
+  if(btnComprar) {
+    btnComprar.addEventListener('click', async () => {
+      btnComprar.innerText = "PROCESANDO SEGURO...";
+      btnComprar.disabled = true;
+
+      const nombre = btnComprar.getAttribute('data-nombre');
+      const precio = btnComprar.getAttribute('data-precio');
+
+      try {
+        const response = await fetch('/api/checkout', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ nombre, precio })
+        });
+
+        const data = await response.json();
+
+        if(data.url) {
+          window.location.href = data.url;
+        }
+      } catch (error) {
+        console.error("Error al procesar el pago", error);
+        btnComprar.innerText = "ERROR - INTENTAR DE NUEVO";
+        btnComprar.disabled = false;
+      }
+    });
+  }
+</script>
