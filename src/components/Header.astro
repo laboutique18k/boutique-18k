@@ -1,25 +1,28 @@
 ---
-// Componente Header
+// Componente Header Adaptativo
 ---
 <div class="fixed top-0 w-full z-50">
   
-  <div class="bg-stone-900 text-[#ddc84d] text-[9px] tracking-[0.3em] uppercase text-center py-2.5 flex justify-center items-center space-x-6 md:space-x-8 w-full border-b border-stone-800">
-    <span class="font-light">Envío asegurado 24/48h</span>
+  <div class="bg-stone-900 text-[#ddc84d] text-[9px] tracking-[0.3em] uppercase text-center py-2.5 flex justify-center items-center space-x-6 md:space-x-8 w-full border-b border-stone-800 px-4">
+    <span class="font-light text-center">Envío asegurado 24/48h</span>
     <span class="hidden md:inline text-stone-600">|</span>
     <span class="hidden md:inline font-light">Oro 18K Certificado</span>
     <span class="hidden md:inline text-stone-600">|</span>
     <span class="hidden md:inline font-light">Transacción Cifrada</span>
   </div>
 
-  <nav class="w-full py-6 px-10 flex justify-between items-center bg-stone-50/95 backdrop-blur-md border-b border-stone-200 shadow-sm">
-    <div class="text-2xl font-serif tracking-[0.2em] uppercase flex items-center gap-2">
+  <nav class="w-full py-4 sm:py-6 px-4 sm:px-10 flex flex-col sm:flex-row justify-between items-center bg-stone-50/95 backdrop-blur-md border-b border-stone-200 shadow-sm gap-3 sm:gap-0">
+    
+    <div class="text-xl sm:text-2xl font-serif tracking-[0.2em] uppercase flex items-center gap-2">
       <a href="/" class="font-bold text-stone-900 hover:text-[#ddc84d] transition-colors">LA BOUTIQUE</a>
     </div>
-    <ul class="flex space-x-6 md:space-x-10 text-xs tracking-widest uppercase text-stone-600 font-semibold">
+
+    <ul class="flex space-x-4 sm:space-x-6 md:space-x-10 text-[10px] sm:text-xs tracking-widest uppercase text-stone-600 font-semibold">
       <li><a href="/catalogo" class="hover:text-[#ddc84d] transition-colors duration-300">Colección</a></li>
       <li><a href="/pulseras" class="hover:text-[#ddc84d] transition-colors duration-300">Pulseras</a></li>
       <li><a href="/cadenas" class="hover:text-[#ddc84d] transition-colors duration-300">Cadenas</a></li>
     </ul>
+
   </nav>
 
 </div>
